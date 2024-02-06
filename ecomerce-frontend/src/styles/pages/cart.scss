@@ -1,0 +1,93 @@
+/** @format */
+
+@import "../mixins.scss";
+
+.cart {
+    padding: 2rem 4rem;
+    @include flex(row, strech, space-between, 4rem);
+    height: calc(100vh - 4rem);
+
+    > main {
+        width: 70%;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        > h1 {
+            @include heading(2px);
+            text-align: center;
+        }
+        .cartItem {
+            > img {
+                width: 100px;
+            }
+        }
+    }
+    > aside {
+        width: 30%;
+        padding: 4rem;
+        @include flex(column, center, strech, 1.5rem);
+        > a {
+            text-align: center;
+        }
+        > input {
+            @include inputStyle;
+            border: 1px solid #0000006b;
+            border-radius: 10px;
+        }
+        > span {
+            > code {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.cartItem {
+    padding: 1rem;
+    @include flex(row, flex-start, center, 3rem);
+    > img {
+        @include square(10rem);
+        object-fit: contain;
+    }
+    > article {
+        @include flex(column, center, flex-start, 0.25rem);
+        > a {
+            font-size: 1.2rem;
+            columns: $color2;
+            &:hover {
+                color: $color3;
+            }
+        }
+    }
+    > div {
+        margin-left: auto;
+        @include flex;
+        > button {
+            border: none;
+            @include square(2rem);
+            border-radius: 5px;
+            cursor: pointer;
+            @include flex;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            &:hover {
+                color: $color1;
+            }
+        }
+    }
+
+    > button {
+        border: none;
+        background-color: transparent;
+        @include square(2rem);
+        border-radius: 5px;
+        cursor: pointer;
+        @include flex;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        &:hover {
+            color: red;
+        }
+    }
+}

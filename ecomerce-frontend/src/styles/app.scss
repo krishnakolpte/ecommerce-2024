@@ -1,0 +1,207 @@
+/** @format */
+
+@import "./mixins.scss";
+
+:root {
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+}
+
+$color1: white;
+$color2: rgb(46, 46, 46);
+$color3: rgb(0, 104, 136);
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.red {
+    color: red;
+}
+.purple {
+    color: rgb(47, 0, 255);
+}
+.green {
+    color: rgb(0, 195, 0);
+}
+
+#hamBurger {
+    display: grid;
+    place-items: center;
+    @include square(3rem);
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+    cursor: pointer;
+    background-color: rgb(47, 0, 255);
+    color: white;
+    z-index: 9;
+    > svg {
+        font-size: 1.5rem;
+    }
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    > div {
+        @include square(7rem);
+        border-radius: 50%;
+        border-top: 5px solid rgb(43, 43, 43);
+        border-left: 5px solid rgb(43, 43, 43);
+        border-bottom: 5px solid rgb(43, 43, 43);
+        border-right: 5px solid white;
+        animation: loading-animation 0.5s linear infinite;
+    }
+}
+
+.skeleton-loader {
+    display: flex;
+    flex-direction: column;
+    > .skleleton-shape {
+        height: 30px;
+        width: 100%;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        animation: skeleton-loader 1.5s infinite;
+    }
+}
+
+@keyframes skeleton-loader {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+@keyframes loading-animation {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.header {
+    @include flex(row, flex-end, strech, 1.2rem);
+    padding: 1rem;
+    a {
+        color: $color2;
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        &:hover {
+            color: $color3;
+        }
+    }
+    > button {
+        border: none;
+        font-size: 1.2rem;
+        background-color: transparent;
+        cursor: pointer;
+        &:hover {
+            color: $color3;
+        }
+    }
+
+    dialog {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 150px;
+        position: absolute;
+        left: calc(100% - 160px);
+        top: 8%;
+        > div {
+            padding: 0.25rem;
+            @include flex(column, flex-start, center, 0.25rem);
+            > a,
+            button {
+                width: 100%;
+                background-color: black;
+                border-radius: 5px;
+                color: white;
+                text-align: center;
+                padding: 0.25rem;
+                border: none;
+                cursor: pointer;
+                &:hover {
+                    color: white;
+                    opacity: 0.8;
+                }
+            }
+            > button {
+                > svg {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+.pge-not-fond {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    > h1 {
+        font-size: 1.4rem;
+        @include heading;
+    }
+    > img {
+        @include square(30rem);
+    }
+}
+
+.checkout-container {
+    max-width: 400px;
+    width: 100%;
+    margin-inline: auto;
+    margin-top: 4rem;
+
+    > form {
+        @include flex(column, flex-start, strech, 2rem);
+    }
+}
+
+// importing style files
+@import "./admin/dashboard.scss";
+@import "./admin/table.scss";
+@import "./admin/products.scss";
+@import "./admin/cunsumer.scss";
+@import "./admin/transactions.scss";
+@import "./admin/chart.scss";
+@import "./admin/adminApps.scss";
+
+@import "./pages/home.scss";
+@import "./pages/cart.scss";
+@import "./pages/shipping.scss";
+@import "./pages/login.scss";
+@import "./pages/search.scss";
+@import "./pages/orders.scss";
+
+@import "./mediaQuerry.scss";

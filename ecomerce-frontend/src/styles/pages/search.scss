@@ -1,0 +1,80 @@
+/** @format */
+
+.search {
+    padding: 2rem;
+    @include flex(row, flex-start, strech, 2rem);
+    min-height: calc(100vh - 6.5rem);
+    > aside {
+        min-width: 20rem;
+        box-shadow: 2px 5px 10px gray;
+        border-radius: 5px;
+        padding: 2rem;
+
+        > section {
+            position: sticky;
+            top: 2rem;
+            left: 2rem;
+            @include flex(column, flex-start, strech, 0.5rem);
+            > h2 {
+                @include heading;
+                font-size: 1.1rem;
+            }
+            > div {
+                position: sticky;
+                top: 3rem;
+                left: 2rem;
+                h4 {
+                    @include heading(0);
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+                > input,
+                select {
+                    @include inputStyle;
+                    border: 1px solid #cccc;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    > main {
+        width: 100%;
+        padding: 0 2rem;
+        > h1 {
+            @include heading;
+        }
+        > input {
+            @include inputStyle;
+            border: 1px solid #cccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin: 1rem;
+        }
+        > div {
+            margin-left: 1rem;
+            @include flex(row, space-evenly, flex-start, 1rem);
+            flex-wrap: wrap;
+        }
+        > article {
+            margin: 2rem;
+            @include flex;
+            padding: 1rem;
+            > button {
+                padding: 0.7rem 2rem;
+                border: none;
+                border-radius: 20px;
+                background-color: $color3;
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            > span {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

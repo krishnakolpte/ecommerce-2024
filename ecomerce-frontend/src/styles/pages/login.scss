@@ -1,0 +1,49 @@
+/** @format */
+@import "../mixins.scss";
+
+.login {
+    width: 100%;
+    height: 90vh;
+    padding: 2rem;
+    @include flex;
+    > main {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+        padding: 2rem;
+        @include baseShadow;
+        border-radius: 10px;
+        @include flex(column, center, center, 1rem);
+        > h1 {
+            @include heading(2px);
+            text-align: center;
+        }
+
+        > div {
+            width: 100%;
+            @include flex(column, center, flex-start, 0.5rem);
+
+            > select,
+            input {
+                @include inputStyle;
+                border: 1px solid #cccc;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+        }
+        > p {
+            margin: 1rem;
+        }
+        > .gauth {
+            width: 100%;
+            height: 4rem;
+            @include flex(row, center, center, 1rem);
+            border: 1px solid $color3;
+            border-radius: 5px;
+            padding: 0.5rem;
+            > svg {
+                font-size: 2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+/** @format */
+
+@import "../mixins.scss";
+
+.dashboardTransactionList {
+    background-color: white;
+    padding: 2rem;
+    overflow: auto;
+    @include square(100%);
+}
+
+.transactionList {
+    overflow-y: auto;
+}

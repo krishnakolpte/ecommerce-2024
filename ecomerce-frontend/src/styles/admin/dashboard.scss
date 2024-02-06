@@ -1,0 +1,205 @@
+/** @format */
+
+@import "../mixins.scss";
+
+.adminContainer {
+    @include grid(1fr 4fr, unset, 2rem);
+    height: 100vh;
+    background-color: rgb(247, 247, 247);
+
+    // sidebar style
+    > aside {
+        width: 100%;
+        background-color: white;
+        padding: 1rem;
+        z-index: 10;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        > div {
+            margin: 2rem 1rem;
+            > h5 {
+                @include heading(2px);
+                opacity: 0.8;
+                margin: 1rem 0;
+            }
+            > ul {
+                @include flex(column, unset, unset, 0.5rem);
+                list-style: none;
+                > li {
+                    padding: 0.5rem 1rem;
+                    border-radius: 10px;
+                    a {
+                        color: rgb(0, 0, 0.825);
+                        @include flex(row, unset);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//dashboard main content styling
+.dashboard {
+    overflow-y: auto;
+    > .searchBar {
+        height: 4rem;
+        @include flex(row, unset);
+        padding: 0 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0.37);
+        > input {
+            margin-right: auto;
+            font-size: 1rem;
+            @include inputStyle(100%, 1rem 0);
+        }
+        > svg {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        > img {
+            @include square(2rem);
+        }
+    }
+    > .widgetContainer {
+        @include flex(row, space-between, stretch, 2rem);
+        padding: 2rem 2rem 2rem 0;
+        > .widget {
+            width: 16rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.132);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            @include flex(row, space-between, stretch, 0);
+            > .widgetInfo {
+                > p {
+                    opacity: 0.7;
+                    font-size: 0.8rem;
+                }
+                > h4 {
+                    font-size: 1.5rem;
+                }
+                > span {
+                    @include flex(row, unset, center, 0.2rem);
+                }
+            }
+            > .wedgetCircle {
+                position: relative;
+                @include square(5rem);
+                flex: none;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                background-color: aquamarine;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-color: white;
+                    border-radius: 100%;
+                    @include square(4rem);
+                }
+                span {
+                    position: relative;
+                }
+            }
+        }
+    }
+    > .graphContainer {
+        @include flex(row, unset, unset, 2rem);
+        padding: 0 2rem 2rem 0;
+
+        > div {
+            background-color: white;
+            border-radius: 10px;
+        }
+        > .revenueChart {
+            width: 100%;
+            padding: 1rem 3rem;
+            > h2 {
+                @include heading();
+                text-align: center;
+                margin: 1rem 0 2rem 0.25rem;
+            }
+        }
+        > .dashboardCategory {
+            width: 100%;
+            max-width: 16rem;
+            @include flex(column, center, unset, 0);
+            padding-bottom: 2rem;
+            > h2 {
+                @include heading();
+                text-align: center;
+                margin: 1rem 0 2rem 0.25rem;
+            }
+            > div {
+                height: 22rem;
+                overflow-y: auto;
+                padding-left: 0.5rem;
+            }
+            .categoryItem {
+                width: 100%;
+                @include flex(row, space-between);
+                padding: 1rem;
+
+                > h5 {
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                }
+                > div {
+                    margin-left: auto;
+                    width: 6rem;
+                    height: 0.5rem;
+                    border-radius: 20px;
+                    flex: none;
+                    background-color: rgb(217, 217, 217);
+                    > div {
+                        height: 100%;
+                        border-radius: 20px;
+                    }
+                }
+                > span {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    > .transactionContainer {
+        @include flex(row, unset, unset, 2rem);
+        padding: 0 2rem 2rem 0;
+        height: 32rem;
+
+        > div {
+            background-color: white;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.132);
+            border-radius: 10px;
+        }
+        > .genderChart {
+            width: 100%;
+            max-width: 20rem;
+            padding: 1rem;
+            position: relative;
+            > h2 {
+                text-align: center;
+                margin: 1.5rem 0 2rem 0;
+                @include heading;
+            }
+            > p {
+                @include posCenter;
+                font-size: 2rem;
+                color: rgba(0, 0, 0, 0.634);
+            }
+        }
+        > .transactionBox {
+            width: 100%;
+            padding: 1rem;
+            overflow-x: auto;
+
+            > h2 {
+                margin: 1.5rem 0 0 0;
+                @include heading;
+            }
+        }
+    }
+}

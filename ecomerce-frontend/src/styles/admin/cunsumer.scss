@@ -1,0 +1,13 @@
+/** @format */
+@import "../mixins.scss";
+
+.dashboardCunsumerList {
+    background-color: white;
+    padding: 2rem;
+    overflow: auto;
+    @include square(100%);
+}
+
+.cunsumerList {
+    overflow-y: auto;
+}
