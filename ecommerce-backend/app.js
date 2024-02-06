@@ -16,6 +16,10 @@ config({
     path: "./config/config.env",
 });
 
+app.get("/", (req, res) => {
+    res.send(`<h1>server is working PERFECT.</h1>`);
+});
+
 cloudinary.v2.config({
     cloud_name: process.env.CLOUDE_NAME,
     api_key: process.env.API_KEY,
@@ -37,11 +41,6 @@ app.use(
         methods: ["GET", "POST", "PUT", "DELETE"],
     })
 );
-
-//routes
-app.get("/", (req, res) => {
-    res.send(`<h1>server is working PERFECT.</h1>`);
-});
 
 import userRoutes from "./routes/user.js";
 import productRoutes from "./routes/product.js";
