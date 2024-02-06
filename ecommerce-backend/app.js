@@ -34,13 +34,13 @@ app.use(morgan("dev"));
 app.use(
     cors({
         origin: process.env.FRONTEND_URL,
-        // methods: [""],
+        methods: ["GET", "POST", "PUT", "DELETE"],
     })
 );
 
 //routes
 app.get("/", (req, res) => {
-    res.send("server is working.");
+    res.send(`<h1>server is working PERFECT.</h1>`);
 });
 
 import userRoutes from "./routes/user.js";
